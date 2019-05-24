@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.android.rahul.samplepulltorefreshonmultiplescroll.viewmodel.MainRowViewModel"/>
+    </data>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:background="@color/transparent">
+        <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_medium"
+                android:background="@color/white"
+                app:cardCornerRadius="@dimen/padding_small"
+                android:elevation="@dimen/elevation_card_view"
+                app:visible="@{!viewModel.showProgress}"
+                android:onClick="@{()->viewModel.onClick()}"
+        >
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="@dimen/elevation_card_view"
+                        app:imageURL="@{viewModel.result.backdrop_path}"
+                />
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="@dimen/padding_small"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackText"
+                                android:text="@string/title"/>
+
+                        <TextView
+                                android:id="@+id/title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackTextBold"
+                                android:text="@{viewModel.result.title}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackText"
+                                android:text="@string/rating"/>
+                        <TextView
+                                android:id="@+id/rating"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackTextBold"
+                                android:text="@{viewModel.result.vote_average}"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackText"
+                                android:text="@string/lang"/>
+                        <TextView
+                                android:id="@+id/language"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackTextBold"
+                                android:text="@{viewModel.result.original_language}"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                        <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackText"
+                                android:text="@string/description"/>
+                        <TextView
+                                android:id="@+id/description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                style="@style/blackTextBold"
+                                android:ellipsize="end"
+                                android:text="@{viewModel.result.overview}"
+                                android:maxLines="2"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:visible="@{viewModel.showProgress}"
+                />
+    </LinearLayout>
+</layout>

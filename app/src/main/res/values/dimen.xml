@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="elevation_card_view">5dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+
+    <dimen name="row_text_size">18sp</dimen>
+    <dimen name="row_text_size_small">15sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+
+    <dimen name="related_view_width">220dp</dimen>
+    <dimen name="related_view_height">260dp</dimen>
+    <dimen name="related_image_height">250dp</dimen>
+</resources>

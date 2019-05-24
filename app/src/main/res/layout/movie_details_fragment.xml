@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".view.MovieDetailActivity"
+>
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.android.rahul.samplepulltorefreshonmultiplescroll.viewmodel.MovieDetailsViewModel"/>
+    </data>
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mainBackground"
+            android:orientation="vertical">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_medium"
+                    android:background="@color/white"
+                    app:cardCornerRadius="@dimen/padding_small"
+                    android:elevation="@dimen/elevation_card_view"
+            >
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="@dimen/elevation_card_view"
+                            app:imageURL="@{viewModel.result.backdrop_path}"
+                    />
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_margin="@dimen/padding_small"
+                            android:orientation="vertical">
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackText"
+                                    android:text="@string/title"/>
+
+                            <TextView
+                                    android:id="@+id/title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackTextBold"
+                                    android:text="@{viewModel.result.title}"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackText"
+                                    android:text="@string/year"/>
+                            <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackTextBold"
+                                    android:text="@{viewModel.result.release_date}"
+                            />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackText"
+                                    android:text="@string/rating"/>
+                            <TextView
+                                    android:id="@+id/rating"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackTextBold"
+                                    android:text="@{viewModel.result.vote_average}"/>
+                        </LinearLayout>
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                            <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackText"
+                                    android:text="@string/lang"/>
+                            <TextView
+                                    android:id="@+id/language"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackTextBold"
+                                    android:text="@{viewModel.result.original_language}"/>
+                        </LinearLayout>
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                            <TextView
+
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackText"
+                                    android:text="@string/description"/>
+                            <TextView
+                                    android:id="@+id/description"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/blackTextBold"
+                                    android:text="@{viewModel.result.overview}"
+                            />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/blackTextLarge"
+                    android:layout_margin="@dimen/padding_small"
+                    android:gravity="center"
+                    android:text="@string/relatedMovies"/>
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/detailsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:layout_marginTop="@dimen/padding_medium"
+                    android:layout_marginBottom="@dimen/padding_medium"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

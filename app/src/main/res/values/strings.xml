@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sample Movie List</string>
+
+    <string name="title">Title :</string>
+    <string name="rating">Rating :</string>
+    <string name="description">Overview :</string>
+    <string name="lang">Language :</string>
+    <string name="year">Released On :</string>
+    <string name="main_list_head">Movie\'s List</string>
+    <string name="movie_details_head">Movie Details</string>
+    <string name="relatedMovies">Related Movies</string>
+
+
+
+
+</resources>
